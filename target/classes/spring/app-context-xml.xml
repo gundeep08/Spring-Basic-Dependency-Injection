@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="bookOne" class="com.collections.di.books.Book" lazy-init="true">
+	      <constructor-arg value="1" type="long"></constructor-arg>
+          <constructor-arg value="12001" type="String"></constructor-arg>
+          <constructor-arg value="Crime and Punishment" type="String"></constructor-arg>
+          <constructor-arg value="20.80" type="float"></constructor-arg>
+    </bean>
+	<bean id="bookTwo" class="com.collections.di.books.Book" lazy-init="true">
+		  <constructor-arg value="2" type="long"></constructor-arg>
+          <constructor-arg value="12002" type="String"></constructor-arg>
+          <constructor-arg value="Mystery" type="String"></constructor-arg>
+          <constructor-arg value="24.99" type="float"></constructor-arg>
+       </bean>
+	<bean id="bookThree" class="com.collections.di.books.Book" lazy-init="true">
+		  <constructor-arg value="3" type="long"></constructor-arg>
+          <constructor-arg value="12003" type="String"></constructor-arg>
+          <constructor-arg value="Core Java" type="String"></constructor-arg>
+          <constructor-arg value="31.80" type="float"></constructor-arg>
+     </bean>  
+	<bean id="bookFour" class="com.collections.di.books.Book" lazy-init="true">
+		<constructor-arg value="4" type="long"></constructor-arg>
+	  	<constructor-arg value="12004" type="String"></constructor-arg>
+        <constructor-arg value="Advanced Java" type="String"></constructor-arg>
+        <constructor-arg value="40.80" type="float"></constructor-arg>
+	</bean>
+	<bean id="bookFive" class="com.collections.di.books.Book" lazy-init="true">
+		<constructor-arg value="5" type="long"></constructor-arg>
+	  	<constructor-arg value="12005" type="String"></constructor-arg>
+        <constructor-arg value="Shakespeare Poetry" type="String"></constructor-arg>
+        <constructor-arg value="18.10" type="float"></constructor-arg>
+	</bean>
+	<bean id="bookSix" class="com.collections.di.books.Book" lazy-init="true">
+		<constructor-arg value="6" type="long"></constructor-arg>
+	  	<constructor-arg value="12006" type="String"></constructor-arg>
+        <constructor-arg value="Pushkin Poetry" type="String"></constructor-arg>
+        <constructor-arg value="12.50" type="float"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="CategoryOne" class="com.collections.di.books.Category" lazy-init="true">
+        <property name="id" value="1"/>
+        <property name="name" value="Novels"/>
+         <property name="booksSet">
+            <set>
+                <ref bean="bookOne"/>
+                <ref bean="bookTwo"/>
+            </set>
+        </property>
+	</bean>
+	<bean id="CategoryTwo" class="com.collections.di.books.Category" lazy-init="true">
+		 <property name="id" value="2"/>
+         <property name="name" value="Java"/>
+         <property name="booksList">
+            <list>
+                <ref bean="bookThree"/>
+                <ref bean="bookFour"/>
+            </list>
+        </property>
+	</bean>
+	<bean id="CategoryThree" class="com.collections.di.books.Category" lazy-init="true">
+		 <property name="id" value="3"/>
+         <property name="name" value="Poetry"/>
+         <property name="booksMap">
+            <map>
+                <entry key="key1" value-ref="bookFive"/>
+                <entry key="key2" value-ref="bookSix"/>
+            </map>
+        </property>
+	</bean>
+
+</beans>
